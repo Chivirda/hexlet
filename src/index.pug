@@ -8,5 +8,11 @@ html(lang="en")
         script(defer src="vendor/js/bootstrap.min.js") 
         title Hexlet | Тестовое задание 
     body 
-        .container-fluid
-            h1 Hello Bootstrap!
+        .container 
+            header.navbar.navbar-light.navbar-expand-lg.border-bottom.align-items-center.py-lg-3.mb-4.justify-content-between
+                a.navbar-brand.link-dark(href="https://ru.hexlet.io/" target="_blank") 
+                    span.fs-4.lh-1 Хекслет
+                ul.navbar-nav
+                    each val in ['О нас', 'Отзывы', 'Цены', 'Начать обучение']
+                        li 
+                            a.nav-link.text-dark.px-lg-3(href="#")= val
