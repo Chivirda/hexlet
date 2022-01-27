@@ -3,6 +3,7 @@ import del from 'del'
 import gulp from 'gulp'
 import imagemin from 'gulp-imagemin'
 import pug from 'gulp-pug'
+import merge from 'merge-stream'
 
 
 function createServer() {
@@ -29,19 +30,27 @@ function buildPages() {
 }
 
 function minImages() {
-  return gulp.src('/src/images/**/*.*')
+  return gulp.src('src/images/**/*.*')
     .pipe(imagemin())
     .pipe(gulp.dest('build/images/'))
 }
 
-function copyBootstrapStyles() {
-  return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
-    .pipe(gulp.dest('build/vendor/css'))
+function copyFavicon() {
+  return gulp.src('src/favicon/**/*.*')
+    .pipe(gulp.dest('build/favicon'))
 }
 
-function copyBootstrapJs() {
-  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
-    .pipe(gulp.dest('build/vendor/js'))
+function copyBootstrap() {
+  return merge([
+    gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+      .pipe(gulp.dest('build/vendor/css')),
+    gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css.map')
+    .pipe(gulp.dest('build/vendor/css')),
+    gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
+      .pipe(gulp.dest('build/vendor/js')),
+    gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js.map')
+      .pipe(gulp.dest('build/vendor/js'))
+  ])
 }
 
 function watchFiles() {
@@ -54,7 +63,7 @@ export default gulp.series(
   gulp.parallel(
     createServer,
     gulp.series(
-      gulp.parallel(buildPages, minImages, copyBootstrapStyles, copyBootstrapJs),
+      gulp.parallel(buildPages, minImages, copyFavicon, copyBootstrap),
       watchFiles
     )
   )
