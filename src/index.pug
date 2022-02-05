@@ -20,9 +20,9 @@ html(lang="en")
                 a.navbar-brand.link-dark(href="https://ru.hexlet.io/" target="_blank") 
                     span.fs-4.lh-1 Хекслет
                 ul.navbar-nav
-                    each val in ['О нас', 'Отзывы', 'Цены', 'Начать обучение']
+                    each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены',start: 'Начать обучение'}
                         li 
-                            a.nav-link.text-dark.px-lg-3(href="#")= val
+                            a.nav-link.text-dark.px-lg-3(href="#" + key)= val
 
         .row.w-100
             .col-6
@@ -45,3 +45,15 @@ html(lang="en")
                             button(type="submit" class="btn btn-primary p-3 fw-bolder w-50 btn-lg") Отправить заявку
                             .fs-9.mt-3 Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c 
                                 a(href="https://ru.hexlet.io/pages/privacy" class="text-decoration-none" target="_blank") политикой конфиденциальности
+
+        .container#about
+            .row.py-5.justify-content-end
+                .col-10
+                    .row 
+                        .col.fs-5
+                            .card.ps-3.float-end.w-50.border-0
+                                .card-body 
+                                    .border-top.border-dark.w-50
+                                    p.pt-1.pb-2.fs-2 Персональное обучение с наставником в комфортном для вас темпе
+                            p Хекслет — онлайн-школа программирования. Мы помогаем новичкам стать профессиональными разработчиками, а опытным специалистам получать новые знания и развиваться
+                            p Помогаем студентам развивать вычислительное мышление. Учим видеть проблему, а не задание, анализировать и рассуждать на уровне проблемы и выше, а не только на уровне кода
