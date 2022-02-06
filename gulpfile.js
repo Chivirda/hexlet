@@ -53,6 +53,11 @@ function copyBootstrap() {
   ])
 }
 
+function copyFontAwesome() {
+  return gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.min.js')
+    .pipe(gulp.dest('build/vendor/js/fontawesome'))
+}
+
 function watchFiles() {
   gulp.watch('src/*.pug', buildPages)
   gulp.watch('src/images/**/*.*', minImages)
@@ -63,7 +68,7 @@ export default gulp.series(
   gulp.parallel(
     createServer,
     gulp.series(
-      gulp.parallel(buildPages, minImages, copyFavicon, copyBootstrap),
+      gulp.parallel(buildPages, minImages, copyFavicon, copyBootstrap, copyFontAwesome),
       watchFiles
     )
   )

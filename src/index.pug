@@ -13,6 +13,7 @@ html(lang="en")
         meta(name="theme-color", content="#ffffff")
         link(rel="stylesheet", href="vendor/css/bootstrap.min.css")
         script(defer src="vendor/js/bootstrap.min.js") 
+        script(defer src="vendor/js/fontawesome/all.min.js") 
         title Hexlet | Тестовое задание 
     body 
         .container 
@@ -20,7 +21,7 @@ html(lang="en")
                 a.navbar-brand.link-dark(href="https://ru.hexlet.io/" target="_blank") 
                     span.fs-4.lh-1 Хекслет
                 ul.navbar-nav
-                    each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены',start: 'Начать обучение'}
+                    each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены', start: 'Начать обучение'}
                         li 
                             a.nav-link.text-dark.px-lg-3(href="#" + key)= val
 
@@ -57,3 +58,44 @@ html(lang="en")
                                     p.pt-1.pb-2.fs-2 Персональное обучение с наставником в комфортном для вас темпе
                             p Хекслет — онлайн-школа программирования. Мы помогаем новичкам стать профессиональными разработчиками, а опытным специалистам получать новые знания и развиваться
                             p Помогаем студентам развивать вычислительное мышление. Учим видеть проблему, а не задание, анализировать и рассуждать на уровне проблемы и выше, а не только на уровне кода
+
+        .bg-light.pt-5 
+            .container 
+                .fs-1.text-center.fw-bolder.pt-3.pb-5 Доступные направления обучения
+                .row 
+                    .col-lg-3.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-js-square.display-1(style="color: #f1e05a")
+                            .card-title.text-center.fw-bolder.fs-3 JavaScript
+                    .col-lg-3.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-php.display-1(style="color: #4F5D95")
+                            .card-title.text-center.fw-bolder.fs-3 PHP
+                    .col-lg-3.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-node-js.display-1(style="color: #8CC84B")
+                            .card-title.text-center.fw-bolder.fs-3 Node.js
+                    .col-lg-3.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-python.display-1(style="color: #3572A5")
+                            .card-title.text-center.fw-bolder.fs-3 Python
+                .row 
+                    .col-lg-4.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-css3-alt.display-1(style="color: #e34c26")
+                            .card-title.text-center.fw-bolder.fs-3 Вёрстка
+                    .col-lg-4.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fas.fa-gem.display-1(style="color: #701516")
+                            .card-title.text-center.fw-bolder.fs-3 Ruby on Rails
+                    .col-lg-4.col-sm-12 
+                        .card.border-0.bg-transparent 
+                            .card-body.text-center 
+                                i.fab.fa-java.display-1(style="color: #b07219")
+                            .card-title.text-center.fw-bolder.fs-3 Java
