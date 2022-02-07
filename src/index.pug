@@ -28,29 +28,31 @@ html(lang="en")
                             each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены', start: 'Начать обучение'}
                                 li 
                                     a.nav-link.text-dark.px-lg-3(href="#" + key)= val
-
-        .row.w-100.m-0
-            .col-lg-6.col-sm-12.p-0
-                img(src="images/toto.png", alt="Toto").w-100
-            .col-lg-6.d-flex.align-items-center
-                .container 
-                    .row.p-5
-                        .col-lg-12
-                            h1.fw-bolder Индивидуальное обучение программированию
-                            p.fs-5 Освойте JavaScript, PHP, Python, Java и Rails с помощью наставника
-                            form
-                                .form-floating.mb-4
-                                    input(type="email", name="email", class="form-control", id="email" placeholder="Электронная почта")
-                                    label(for="email") Электронная почта
-                                .form-floating.mb-4
-                                    input(type="tel", name="phone", class="form-control", id="phone" placeholder="Телефон")
-                                    label(for="phone") Телефон
-                                .form-floating.mb-4
-                                    input(type="text", name="name", class="form-control", id="name" placeholder="Имя")
-                                    label(for="name") Имя
-                                button(type="submit" class="btn btn-primary p-3 fw-bolder w-50 btn-lg") Отправить заявку
-                                .fs-9.mt-3 Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c 
-                                    a(href="https://ru.hexlet.io/pages/privacy" class="text-decoration-none" target="_blank") политикой конфиденциальности
+        .container-fluid.p-0
+            .row.m-0
+                .col-lg-6.col-sm-12.p-0
+                    img(src="images/toto.png", alt="Toto").w-100
+                .col-lg-6.d-flex.align-items-center
+                    .container-fluid 
+                        .row.justify-content-center
+                            .col-lg-10.col-sm-12
+                                h1.fw-bolder Индивидуальное обучение программированию
+                                p.fs-5 Освойте JavaScript, PHP, Python, Java и Rails с помощью наставника
+                                form
+                                    .form-floating.mb-4
+                                        input(type="email", name="email", class="form-control", id="email" placeholder="Электронная почта")
+                                        label(for="email") Электронная почта
+                                    .form-floating.mb-4
+                                        input(type="tel", name="phone", class="form-control", id="phone" placeholder="Телефон")
+                                        label(for="phone") Телефон
+                                    .form-floating.mb-4
+                                        input(type="text", name="name", class="form-control", id="name" placeholder="Имя")
+                                        label(for="name") Имя
+                                    .col-lg-6.col-sm-12
+                                        button(type="submit" class="btn btn-primary form-control p-3 fw-bolder btn-lg") Отправить заявку
+                                    .form-floating
+                                        .fs-6.mt-3 Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c 
+                                            a(href="https://ru.hexlet.io/pages/privacy" class="text-decoration-none" target="_blank") политикой конфиденциальности
 
         .container#about
             .row.py-5.justify-content-end
