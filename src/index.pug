@@ -18,15 +18,19 @@ html(lang="en")
     body 
         .container 
             header.navbar.navbar-light.navbar-expand-lg.border-bottom.align-items-center.py-lg-3.mb-4.justify-content-between
-                a.navbar-brand.link-dark(href="https://ru.hexlet.io/" target="_blank") 
-                    span.fs-4.lh-1 Хекслет
-                ul.navbar-nav
-                    each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены', start: 'Начать обучение'}
-                        li 
-                            a.nav-link.text-dark.px-lg-3(href="#" + key)= val
+                .container-fluid
+                    a.navbar-brand.link-dark(href="https://ru.hexlet.io/" target="_blank") 
+                        span.fs-4.lh-1 Хекслет
+                    button.navbar-toggler.collapsed(data-bs-toggle="collapse", data-bs-target="#navbar", aria-controls="navbar", aria-expanded="false", aria-label="Toggle navigation")
+                        span.navbar-toggler-icon
+                    .collapse.navbar-collapse#navbar
+                        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                            each val, key in {about: 'О нас', reviews: 'Отзывы', prices: 'Цены', start: 'Начать обучение'}
+                                li 
+                                    a.nav-link.text-dark.px-lg-3(href="#" + key)= val
 
-        .row.w-100
-            .col-6
+        .row.w-100.m-0
+            .col-lg-6.col-sm-12.p-0
                 img(src="images/toto.png", alt="Toto").w-100
             .col-lg-6.d-flex.align-items-center
                 .container 
@@ -50,15 +54,13 @@ html(lang="en")
 
         .container#about
             .row.py-5.justify-content-end
-                .col-10
-                    .row 
-                        .col.fs-5
-                            .card.ps-3.float-end.w-50.border-0
-                                .card-body 
-                                    .border-top.border-dark.w-50
-                                    p.pt-1.pb-2.fs-2 Персональное обучение с наставником в комфортном для вас темпе
-                            p Хекслет — онлайн-школа программирования. Мы помогаем новичкам стать профессиональными разработчиками, а опытным специалистам получать новые знания и развиваться
-                            p Помогаем студентам развивать вычислительное мышление. Учим видеть проблему, а не задание, анализировать и рассуждать на уровне проблемы и выше, а не только на уровне кода
+                .col-lg-10.col-sm-12
+                    .col-lg-5.col-sm-12.float-end.ps-3
+                        .border-top.border-dark.w-50
+                        p.pt-1.pb-2.fs-3 Персональное обучение с наставником в комфортном для вас темпе
+                    .col-lg-10.col-sm-12.float-none.fs-5
+                        p Хекслет — онлайн-школа программирования. Мы помогаем новичкам стать профессиональными разработчиками, а опытным специалистам получать новые знания и развиваться
+                        p Помогаем студентам развивать вычислительное мышление. Учим видеть проблему, а не задание, анализировать и рассуждать на уровне проблемы и выше, а не только на уровне кода
 
         .bg-light.pt-5.pb-3 
             .container 
@@ -102,13 +104,13 @@ html(lang="en")
                             .card-title.text-center.fw-bolder.fs-3 Java 
 
         .row.w-100.pt-5.me-0.ms-0.mt-5.pb-5.justify-content-end.overflow-hidden
-            .col-4.ps-4.d-flex.align-items-center
+            .col-lg-4.col-sm-12.ps-4.d-flex.align-items-center
                 .col 
                     h3.fs-1.fw-bolder Наставник
                     p.fs-5 Наставник — опытный программист, который добился успехов в профессии, а теперь делится знаниями и опытом со студентами
                     p.fs-5 Он помогает планировать обучение, осваивать теорию и писать код. Если возникли проблемы, наставник подскажет, как их можно решить
                     p.fs-5 Наставник ведет студента по практическим проектам, задает правильные вопросы и помогает разобраться с реальными задачами. Он проверяет код проектов и оценивает ваш прогресс
-            .col-6.pe-0
+            .col-lg-6.col-sm-12.d-sm-flex.justify-content-sm-center.justify-content-md-start.pe-0
                 img(src="images/mentoring.jpg", alt="mentoring" style="height: 550px;")
 
         .container.pb-5 
@@ -121,7 +123,7 @@ html(lang="en")
                             p.fw-bolder.fs-5 Парное программирование с наставником
                             p.fs-6 Программируйте параллельно вместе с наставником, работая над единой задачей. Задавайте вопросы, обсуждайте решения, ищите альтернативные подходы, в режиме онлайн получайте обратную связь и рекомендации
                 .col-lg-6.col-sm-12 
-                    .row 
+                    .row.justify-content-center 
                         .col-1 
                             i.fas.fa-check-circle.fa-2x
                         .col-9 
@@ -136,7 +138,7 @@ html(lang="en")
                             p.fw-bolder.fs-5 Ревью кода от наставника
                             p.fs-6 Получайте код ревью не только в рамках прохождения проектов, но и там, где это потребуется — на любом из этапов обучения. Общее время работы с наставником — 8 часов в месяц
                 .col-lg-6.col-sm-12
-                    .row
+                    .row.justify-content-center
                         .col-1 
                             i.fas.fa-check-circle.fa-2x
                         .col-9 
