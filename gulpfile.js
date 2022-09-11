@@ -29,6 +29,15 @@ function buildPages() {
     .pipe(gulp.dest('build/'))
 }
 
+function buildSlider() {
+  return merge([
+    gulp.src('src/slider/slider.css')
+      .pipe(gulp.dest('build/slider')),
+    gulp.src('src/slider/slider.js')
+      .pipe(gulp.dest('build/slider'))
+  ])
+}
+
 function minImages() {
   return gulp.src('src/images/**/*.*')
     .pipe(imagemin())
@@ -60,6 +69,7 @@ function copyFontAwesome() {
 
 function watchFiles() {
   gulp.watch('src/*.pug', buildPages)
+  gulp.watch('src/slider/*.*', buildSlider)
   gulp.watch('src/images/**/*.*', minImages)
 }
 
@@ -68,7 +78,7 @@ export default gulp.series(
   gulp.parallel(
     createServer,
     gulp.series(
-      gulp.parallel(buildPages, minImages, copyFavicon, copyBootstrap, copyFontAwesome),
+      gulp.parallel(buildPages, buildSlider, minImages, copyFavicon, copyBootstrap, copyFontAwesome),
       watchFiles
     )
   )
